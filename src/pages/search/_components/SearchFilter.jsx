@@ -10,45 +10,54 @@ const SearchFilter = () => {
   const [children, setChildren] = useState(0);
   const [room, setRoom] = useState(1);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // Keep the current filter values available for later search/filter logic.
+  const handleSubmit = (event) => {
+    event.preventDefault();
     console.log({ destination, checkInDate, minPrice, maxPrice, adult, children, room });
   };
 
   return (
     <form onSubmit={handleSubmit} className='bg-amber-400 rounded-md p-3 w-full md:w-72 shrink-0'>
       <h2 className='text-gray-700 font-bold text-lg mb-4'>Search</h2>
-      <FormInput label='Destination' inputValue={destination} onChange={(e) => setDestination(e.target.value)} />
+
+      <FormInput
+        label='Destination'
+        inputValue={destination}
+        onChange={(event) => setDestination(event.target.value)}
+      />
+
       <FormInput
         label='Check-in Date'
         inputValue={checkInDate}
-        onChange={(e) => setCheckInDate(e.target.value)}
+        onChange={(event) => setCheckInDate(event.target.value)}
         placeholder='06/24/2022 to 06/24/2022'
       />
+
       <div className='mb-5'>
         <h3 className='text-gray-900 font-semibold mb-2'>Options</h3>
 
-        <MiniFormInput inputValue={minPrice} onChange={(e) => setMinPrice(e.target.value)}>
+        <MiniFormInput inputValue={minPrice} onChange={(event) => setMinPrice(event.target.value)}>
           Min price <span className='text-xs'>per night</span>
         </MiniFormInput>
 
-        <MiniFormInput inputValue={maxPrice} onChange={(e) => setMaxPrice(e.target.value)}>
+        <MiniFormInput inputValue={maxPrice} onChange={(event) => setMaxPrice(event.target.value)}>
           Max price <span className='text-xs'>per night</span>
         </MiniFormInput>
 
-        <MiniFormInput inputValue={adult} onChange={(e) => setAdult(e.target.value)}>
+        <MiniFormInput inputValue={adult} onChange={(event) => setAdult(event.target.value)}>
           Adult
         </MiniFormInput>
 
-        <MiniFormInput inputValue={children} onChange={(e) => setChildren(e.target.value)}>
+        <MiniFormInput inputValue={children} onChange={(event) => setChildren(event.target.value)}>
           Children
         </MiniFormInput>
 
-        <MiniFormInput inputValue={room} onChange={(e) => setRoom(e.target.value)}>
+        <MiniFormInput inputValue={room} onChange={(event) => setRoom(event.target.value)}>
           Room
         </MiniFormInput>
       </div>
-      <Button type='submit' bgColor='blue' type='submit' className='w-full py-2.5 '>
+
+      <Button type='submit' bgColor='blue' className='w-full py-2.5'>
         Search
       </Button>
     </form>

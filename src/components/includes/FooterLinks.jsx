@@ -1,4 +1,3 @@
-// import { Link } from 'react-router';
 import Container from '../layout/Container';
 import footerData from '../../../data/footer.json';
 
@@ -12,9 +11,6 @@ const FooterLinks = () => {
               {col_values.map((value) => (
                 <li key={value}>
                   <a className='text-blue-700 hover:underline text-sm'>{value}</a>
-                  {/* <Link to='#' className='text-blue-700 hover:underline text-sm'>
-                    {value}
-                  </Link> */}
                 </li>
               ))}
             </ul>

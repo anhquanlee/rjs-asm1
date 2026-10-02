@@ -51,7 +51,8 @@ const SearchResultCard = ({
             <p className='text-2xl font-md text-gray-900'>${price}</p>
             <p className='text-sm text-gray-400'>Includes taxes and fees</p>
           </div>
-          <Button type='submit' bgColor='blue' className='text-md px-4 py-2 whitespace-nowrap lg:w-full lg:mt-2'>
+
+          <Button bgColor='blue' className='text-md px-4 py-2 whitespace-nowrap lg:w-full lg:mt-2'>
             See availability
           </Button>
         </div>

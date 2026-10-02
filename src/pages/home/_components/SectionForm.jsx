@@ -1,21 +1,19 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBed, faCalendarDays, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBed, faUser } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../../components/UI/Button';
 import DaterangeInput from './DaterangeInput';
 
 const SectionForm = () => {
   const navigate = useNavigate();
-
   const [destination, setDestination] = useState('');
   const [guests, setGuests] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // Search submission redirects users to the Search page.
+  const handleSubmit = (event) => {
+    event.preventDefault();
     navigate('/search');
-
-    // console.log({ destination, dateRange, guests });
   };
 
   return (
@@ -25,7 +23,7 @@ const SectionForm = () => {
       <FormInput
         icon={faBed}
         inputValue={destination}
-        inputChangeHandler={(e) => setDestination(e.target.value)}
+        inputChangeHandler={(event) => setDestination(event.target.value)}
         placeholder='Where are you going?'
       />
 
@@ -34,7 +32,7 @@ const SectionForm = () => {
       <FormInput
         icon={faUser}
         inputValue={guests}
-        inputChangeHandler={(e) => setGuests(e.target.value)}
+        inputChangeHandler={(event) => setGuests(event.target.value)}
         placeholder='1 adult · 0 children · 1 room'
       />
 

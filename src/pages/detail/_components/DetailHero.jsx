@@ -15,7 +15,7 @@ const DetailHero = ({ name, address, distance, price }) => {
         <p className='text-green-700 text-sm font-medium mt-1'>{price}</p>
       </div>
 
-      <Button type='submit' bgColor='blue' className='text-sm px-4 py-2 shrink-0'>
+      <Button bgColor='blue' className='text-sm px-4 py-2 shrink-0'>
         Reserve or Book Now!
       </Button>
     </div>

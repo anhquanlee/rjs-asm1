@@ -12,7 +12,7 @@ const Section = () => {
             Get rewarded for your travels – unlock instant savings of 10% or more with a free account
           </p>
 
-          <Button type='submit' bgColor='blue' className='text-sm px-4 py-2 mt-4'>
+          <Button bgColor='blue' className='text-sm px-4 py-2 mt-4'>
             Sign in / Register
           </Button>
         </div>

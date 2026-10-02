@@ -16,9 +16,10 @@ const DateRangeField = () => {
   });
   const wrapperRef = useRef(null);
 
+  // Close the date picker when the user clicks outside the date field.
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
+    const handleClickOutside = (event) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
         setIsOpen(false);
       }
     };

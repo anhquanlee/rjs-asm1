@@ -13,7 +13,7 @@ const DetailBookingCard = ({ nine_night_price }) => {
         <span className='text-sm text-gray-500'>(9 nights)</span>
       </p>
 
-      <Button type='submit' bgColor='blue' className='w-full mt-3 text-sm py-2'>
+      <Button bgColor='blue' className='w-full mt-3 text-sm py-2'>
         Reserve or Book Now!
       </Button>
     </div>
