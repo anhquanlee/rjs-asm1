@@ -2,18 +2,27 @@ import { useState } from 'react';
 import Button from '../../../components/UI/Button';
 
 const SearchFilter = () => {
-  const [destination, setDestination] = useState('');
-  const [checkInDate, setCheckInDate] = useState('');
-  const [minPrice, setMinPrice] = useState('');
-  const [maxPrice, setMaxPrice] = useState('');
-  const [adult, setAdult] = useState(1);
-  const [children, setChildren] = useState(0);
-  const [room, setRoom] = useState(1);
+  const [searchValues, setSearchValues] = useState({
+    destination: '',
+    checkInDate: '',
+    minPrice: '',
+    maxPrice: '',
+    adult: 1,
+    children: 0,
+    room: 1,
+  });
+
+  const handleChange = (value, identifier) => {
+    setSearchValues((prevValues) => ({
+      ...prevValues,
+      [identifier]: value,
+    }));
+  };
 
   // Keep the current filter values available for later search/filter logic.
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log({ destination, checkInDate, minPrice, maxPrice, adult, children, room });
+    console.log(searchValues);
   };
 
   return (
@@ -22,37 +31,47 @@ const SearchFilter = () => {
 
       <FormInput
         label='Destination'
-        inputValue={destination}
-        onChange={(event) => setDestination(event.target.value)}
+        inputValue={searchValues.destination}
+        onChange={(event) => handleChange(event.target.value, 'destination')}
       />
 
       <FormInput
         label='Check-in Date'
-        inputValue={checkInDate}
-        onChange={(event) => setCheckInDate(event.target.value)}
+        inputValue={searchValues.checkInDate}
+        onChange={(event) => handleChange(event.target.value, 'checkInDate')}
         placeholder='06/24/2022 to 06/24/2022'
       />
 
       <div className='mb-5'>
         <h3 className='text-gray-900 font-semibold mb-2'>Options</h3>
 
-        <MiniFormInput inputValue={minPrice} onChange={(event) => setMinPrice(event.target.value)}>
+        <MiniFormInput
+          inputValue={searchValues.minPrice}
+          onChange={(event) => handleChange(event.target.value, 'minPrice')}>
           Min price <span className='text-xs'>per night</span>
         </MiniFormInput>
 
-        <MiniFormInput inputValue={maxPrice} onChange={(event) => setMaxPrice(event.target.value)}>
+        <MiniFormInput
+          inputValue={searchValues.maxPrice}
+          onChange={(event) => handleChange(event.target.value, 'maxPrice')}>
           Max price <span className='text-xs'>per night</span>
         </MiniFormInput>
 
-        <MiniFormInput inputValue={adult} onChange={(event) => setAdult(event.target.value)}>
+        <MiniFormInput
+          inputValue={searchValues.adult}
+          onChange={(event) => handleChange(event.target.value, 'adult')}>
           Adult
         </MiniFormInput>
 
-        <MiniFormInput inputValue={children} onChange={(event) => setChildren(event.target.value)}>
+        <MiniFormInput
+          inputValue={searchValues.children}
+          onChange={(event) => handleChange(event.target.value, 'children')}>
           Children
         </MiniFormInput>
 
-        <MiniFormInput inputValue={room} onChange={(event) => setRoom(event.target.value)}>
+        <MiniFormInput
+          inputValue={searchValues.room}
+          onChange={(event) => handleChange(event.target.value, 'room')}>
           Room
         </MiniFormInput>
       </div>
